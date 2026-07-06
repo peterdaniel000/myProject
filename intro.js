@@ -1,3 +1,3 @@
-console.log("name: peter daniel");
+console.log("name: authur brown");
 console.log(23);
 console.log("java");
