@@ -2,6 +2,7 @@
 
 import subprocess
 import optparse
+import re
 
 def get_arguments():
     parser = optparse.OptionParser()
@@ -32,3 +33,9 @@ options = get_arguments()
 
 ifconfig_result = subprocess.check_output(["ifconfig", options.interface])
 print(ifconfig_result)
+
+mac_address_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", str(ifconfig_result))
+if mac_address_result:
+    print(mac_address_result.group(0))
+else:
+    print("[-] could not find mac address")
