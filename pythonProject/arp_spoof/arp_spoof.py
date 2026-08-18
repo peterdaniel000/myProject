@@ -31,7 +31,7 @@ try:
         spoof(target_ip, gateway_ip)
         spoof(gateway_ip, target_ip)
         sent_packet_count = sent_packet_count + 2
-        print("[+] packets sent: " + str(sent_packet_count), end="\r")
+        print("\r[+] packets sent: " + str(sent_packet_count), end="")
         time.sleep(2)
 except KeyboardInterrupt:
     print("[+]  Detected CTRL + C ... Resetting ARP tables... please wait.")
